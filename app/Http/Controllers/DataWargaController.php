@@ -213,16 +213,35 @@ class DataWargaController extends Controller
     }
 
     // GET: Fetch all data warga
+    // public function listDataWarga(Request $request)
+    // {
+    //     // Define the number of records per page
+    //     $perPage = $request->get('perPage', 10); // default to 10 if not specified
+
+    //     // Fetch paginated data
+    //     $dataWarga = MasterDataWarga::join('master_kabupatens', 'master_data_wargas.id_kabupaten', '=', 'master_kabupatens.id')
+    //         ->join('master_kecamatans', 'master_data_wargas.id_kecamatan', '=', 'master_kecamatans.id')
+    //         ->join('master_kelurahans', 'master_data_wargas.id_kelurahan', '=', 'master_kelurahans.id')
+    //         ->select('master_data_wargas.*', 'master_kabupatens.name AS nama_kabupaten', 'master_kecamatans.name AS nama_kecamatan', 'master_kelurahans.name AS nama_kelurahan')
+    //         ->paginate($perPage); // Use pagination
+
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'data' => $dataWarga
+    //     ]);
+    // }
     public function listDataWarga(Request $request)
     {
         // Define the number of records per page
         $perPage = $request->get('perPage', 10); // default to 10 if not specified
 
-        // Fetch paginated data
+        // Fetch paginated data, filter only NIK with 16 digits and numeric
         $dataWarga = MasterDataWarga::join('master_kabupatens', 'master_data_wargas.id_kabupaten', '=', 'master_kabupatens.id')
             ->join('master_kecamatans', 'master_data_wargas.id_kecamatan', '=', 'master_kecamatans.id')
             ->join('master_kelurahans', 'master_data_wargas.id_kelurahan', '=', 'master_kelurahans.id')
             ->select('master_data_wargas.*', 'master_kabupatens.name AS nama_kabupaten', 'master_kecamatans.name AS nama_kecamatan', 'master_kelurahans.name AS nama_kelurahan')
+            ->whereRaw('LENGTH(master_data_wargas.nik) = 16') // Check if NIK is 16 characters long
+            ->whereRaw('master_data_wargas.nik REGEXP "^[0-9]+$"') // Check if NIK is numeric (only numbers)
             ->paginate($perPage); // Use pagination
 
         return response()->json([
@@ -230,6 +249,7 @@ class DataWargaController extends Controller
             'data' => $dataWarga
         ]);
     }
+
 
     public function listDataWargaByPj($id)
     {
@@ -328,7 +348,7 @@ class DataWargaController extends Controller
     // DELETE: Hapus data warga
     public function destroy($id)
     {
-        $dataWarga = MasterDataWarga::find($id);
+        $dataWarga = MasterDataWarga::where('nik', $id)->get();
 
         if (!$dataWarga) {
             return response()->json([
