@@ -26,7 +26,7 @@ class CreateMasterDataWargasTable extends Migration
             $table->string('kategori_warga')->nullable();
             $table->string('id_kabupaten');
             $table->string('id_kecamatan');
-            $table->string('id_kelurahan');
+            $table->string('id_kelurahan')->nullable();
             $table->foreignId('pj_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

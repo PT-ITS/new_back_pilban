@@ -230,26 +230,54 @@ class DataWargaController extends Controller
     //         'data' => $dataWarga
     //     ]);
     // }
+    // public function listDataWarga(Request $request)
+    // {
+    //     // Define the number of records per page
+    //     $perPage = $request->get('perPage', 10); // default to 10 if not specified
+
+    //     // Fetch paginated data, filter only NIK with 16 digits and numeric
+    //     $dataWarga = MasterDataWarga::join('master_kabupatens', 'master_data_wargas.id_kabupaten', '=', 'master_kabupatens.id')
+    //         ->join('master_kecamatans', 'master_data_wargas.id_kecamatan', '=', 'master_kecamatans.id')
+    //         ->leftJoin('master_kelurahans', 'master_data_wargas.id_kelurahan', '=', 'master_kelurahans.id')
+    //         ->select('master_data_wargas.*', 'master_kabupatens.name AS nama_kabupaten', 'master_kecamatans.name AS nama_kecamatan', 'master_kelurahans.name AS nama_kelurahan')
+    //         ->whereRaw('LENGTH(master_data_wargas.nik) = 16') // Check if NIK is 16 characters long
+    //         ->whereRaw('master_data_wargas.nik REGEXP "^[0-9]+$"') // Check if NIK is numeric (only numbers)
+    //         ->paginate($perPage); // Use pagination
+
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'data' => $dataWarga
+    //     ]);
+    // }
+
     public function listDataWarga(Request $request)
     {
         // Define the number of records per page
         $perPage = $request->get('perPage', 10); // default to 10 if not specified
+        $searchQuery = $request->get('searchQuery', ''); // search query from frontend
 
         // Fetch paginated data, filter only NIK with 16 digits and numeric
-        $dataWarga = MasterDataWarga::join('master_kabupatens', 'master_data_wargas.id_kabupaten', '=', 'master_kabupatens.id')
-            ->join('master_kecamatans', 'master_data_wargas.id_kecamatan', '=', 'master_kecamatans.id')
-            ->join('master_kelurahans', 'master_data_wargas.id_kelurahan', '=', 'master_kelurahans.id')
-            ->select('master_data_wargas.*', 'master_kabupatens.name AS nama_kabupaten', 'master_kecamatans.name AS nama_kecamatan', 'master_kelurahans.name AS nama_kelurahan')
+        $dataWarga = MasterDataWarga::select('master_data_wargas.nik', 'master_data_wargas.nama', 'master_data_wargas.alamat')
             ->whereRaw('LENGTH(master_data_wargas.nik) = 16') // Check if NIK is 16 characters long
-            ->whereRaw('master_data_wargas.nik REGEXP "^[0-9]+$"') // Check if NIK is numeric (only numbers)
-            ->paginate($perPage); // Use pagination
+            ->whereRaw('master_data_wargas.nik REGEXP "^[0-9]+$"'); // Check if NIK is numeric (only numbers)
+
+        // Apply search query to relevant columns if provided
+        if (!empty($searchQuery)) {
+            $dataWarga = $dataWarga->where(function ($query) use ($searchQuery) {
+                $query->where('master_data_wargas.nik', 'like', "%{$searchQuery}%")
+                    ->orWhere('master_data_wargas.nama', 'like', "%{$searchQuery}%")
+                    ->orWhere('master_data_wargas.alamat', 'like', "%{$searchQuery}%");
+            });
+        }
+
+        // Paginate the results
+        $dataWarga = $dataWarga->paginate($perPage);
 
         return response()->json([
             'status' => 'success',
             'data' => $dataWarga
         ]);
     }
-
 
     public function listDataWargaByPj($id)
     {
