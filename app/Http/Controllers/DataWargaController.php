@@ -16,11 +16,11 @@ use App\Exports\DataByKabExport;
 
 class DataWargaController extends Controller
 {
-    public function exportToExcelByKab($id)
+    public function exportToExcelByKec($id)
     {
         try {
-            // Cari data kabupaten berdasarkan ID yang diterima
-            $dataKab = MasterDataWarga::where('id_kabupaten', $id)
+            // Cari data kecamatan berdasarkan ID yang diterima
+            $dataKab = MasterDataWarga::where('id_kecamatan', $id)
                 ->select('nik', 'nama', 'alamat') // Pilih hanya kolom nik, nama, dan alamat
                 ->get()
                 ->toArray(); // Konversi hasil query menjadi array

@@ -77,7 +77,7 @@ Route::group([
     });
 });
 
-Route::get('/export-warga/{id}', [DataWargaController::class, 'exportToExcelByKab']);       // Get specific warga by ID
+Route::get('/export-warga/{id}', [DataWargaController::class, 'exportToExcelByKec']);       // Get specific warga by ID
 
 Route::prefix('dpt')->group(function () {
     Route::post('/import', [DataDptController::class, 'importDataDpt']);
