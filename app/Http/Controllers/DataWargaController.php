@@ -77,7 +77,7 @@ class DataWargaController extends Controller
                             'nama' => $data['nama'],
                             // 'jenis_kelamin' => $data['jenis_kelamin'],
                             'alamat' => $data['alamat'],
-                            'kategori_warga' => $request->kategori_warga,
+                            // 'kategori_warga' => $request->kategori_warga,
                             'id_kabupaten' => $request->id_kabupaten,
                             'id_kecamatan' => $request->id_kecamatan,
                             'id_kelurahan' => $request->id_kelurahan,
