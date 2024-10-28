@@ -385,7 +385,7 @@ class DataWargaController extends Controller
     // DELETE: Hapus data warga
     public function destroy($id)
     {
-        $dataWarga = MasterDataWarga::where('nik', $id)->get();
+        $dataWarga = MasterDataWarga::where('nik', $id)->first();
 
         if (!$dataWarga) {
             return response()->json([
