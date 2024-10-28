@@ -23,96 +23,68 @@ class UserSeeder extends Seeder
     public function run()
     {
         // pengurus
+        // User::create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => Hash::make('12345'),
+        //     'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+        //     'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        // ]);
         User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('12345'),
+            'name' => 'kabpandeglang',
+            'email' => 'kabpandeglang@gmail.com',
+            'password' => Hash::make('mlfu8gqrNDj7ovr'),
             'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
             'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
         ]);
-        // relawan::create([
-        //     'nik' => '3601',
-        //     'nama' => 'Mang Ari',
-        //     'alamat' => 'Jl. Raya Ciboleger',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'kel' => 'Cisimeut',
-        //     'rt_rw' => 'RT 09/RW 09',
-        //     'jumlah_data' => '1000',
-        // ]);
-        // data_pemilih::create([
-        //     'nik' => '3602',
-        //     'nama' => 'Mang Yayan',
-        //     'alamat' => 'Jl. Raya Ciboleger',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'desa_kel' => 'Cisimeut',
-        //     'rt_rw' => 'RT 09/RW 09',
-        //     'tps' => 'TPS 01',
-        //     'relawan_id' => '1',
-        // ]);
-        // data_pemilih::create([
-        //     'nik' => '3603',
-        //     'nama' => 'Mang Ucup',
-        //     'alamat' => 'Jl. Raya Ciboleger',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'desa_kel' => 'Cisimeut',
-        //     'rt_rw' => 'RT 09/RW 09',
-        //     'tps' => 'TPS 01',
-        //     'relawan_id' => '1',
-        // ]);
-        // data_pemilih::create([
-        //     'nik' => '3604',
-        //     'nama' => 'Mang Asep',
-        //     'alamat' => 'Jl. Raya Ciboleger',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'desa_kel' => 'Cisimeut',
-        //     'rt_rw' => 'RT 09/RW 09',
-        //     'tps' => 'TPS 01',
-        //     'relawan_id' => '1',
-        // ]);
-        // data_rw::create([
-        //     'nik' => '3605',
-        //     'nama' => 'Mang Cecep',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'kel' => 'Cisimeut',
-        //     'rw' => 'RW 09',
-        //     'support' => '1',
-        //     'relawan_id' => '1',
-        // ]);
-        // data_rt::create([
-        //     'nik' => '3606',
-        //     'nama' => 'Mang Bagas',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'kel' => 'Cisimeut',
-        //     'rw' => 'RW 09',
-        //     'rt' => 'RT 09',
-        //     'support' => '1',
-        //     'relawan_id' => '1',
-        // ]);
-        // pemuka_agama::create([
-        //     'nik' => '3607',
-        //     'nama' => 'Kyai Hari',
-        //     'pesantren' => 'Ponpes Al-Hari',
-        //     'alamat' => 'Jl. Raya Ciboleger',
-        //     'kota' => 'Kabupaten Lebak',
-        //     'kec' => 'Kec. Leuwidamar',
-        //     'kel' => 'Cisimeut',
-        //     'support' => '1',
-        //     'relawan_id' => '1',
-        // ]);
-        // bantuan_relawan::create([
-        //     'jenis_bantuan' => 'beras',
-        //     'tanggal' => '2024-10-05',
-        //     'sasaran' => 'warga',
-        //     'harga_satuan' => '45000',
-        //     'jumlah_penerima' => '1000',
-        //     'jumlah_bantuan' => '45000000',
-        //     'relawan_id' => '1',
-        // ]);
+        User::create([
+            'name' => 'kablebak',
+            'email' => 'kablebak@gmail.com',
+            'password' => Hash::make('jnuZrM8J2akzgCw'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kabtangerang',
+            'email' => 'kabtangerang@gmail.com',
+            'password' => Hash::make('Q9zxYOhUILobbIF'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kabserang',
+            'email' => 'kabserang@gmail.com',
+            'password' => Hash::make('D23Y8ut8wxLGhDB'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kotatangerang',
+            'email' => 'kotatangerang@gmail.com',
+            'password' => Hash::make('6bSQPd7DvbIq0YJ'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kotacilegon',
+            'email' => 'kotacilegon@gmail.com',
+            'password' => Hash::make('ubczHf9aAvtCkD1'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kotaserang',
+            'email' => 'kotaserang@gmail.com',
+            'password' => Hash::make('qoAu6u8DQzaGBSc'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
+        User::create([
+            'name' => 'kotatangsel',
+            'email' => 'kotatangsel@gmail.com',
+            'password' => Hash::make('CnDy7CDDocLjhrA'),
+            'created_at' => Carbon::create(2024, 10, 3, 12, 0, 0), // Format: (year, month, day, hour, minute, second)
+            'updated_at' => Carbon::create(2024, 10, 3, 12, 0, 0) // Format: (year, month, day, hour, minute, second)
+        ]);
     }
 }
