@@ -85,7 +85,8 @@ class WargaSheetExport implements WithMultipleSheets
                             'nik' => $data['nik'],
                             'nama' => $data['nama'],
                             'alamat' => $data['alamat'],
-                            'nama_pj' => $pj ? $pj->name : 'Unknown',  // Jika pj_id tidak ditemukan, tampilkan 'Unknown'
+                            'penanggung jawab' => $data['penanggung_jawab'],
+                            // 'admin' => $pj ? $pj->name : 'Unknown',  // Jika pj_id tidak ditemukan, tampilkan 'Unknown'
                             'created_at' => $data['created_at'],
                         ];
                     }, $this->data);
