@@ -72,6 +72,7 @@ class DataWargaController extends Controller
                     if (!$existingWarga) {
                         // If not existing, create a new pemilih entry
                         $wargaData = new MasterDataWarga([
+                            'id' => '0',
                             'nik' => $data['nik'],
                             'nama' => $data['nama'],
                             // 'jenis_kelamin' => $data['jenis_kelamin'],
