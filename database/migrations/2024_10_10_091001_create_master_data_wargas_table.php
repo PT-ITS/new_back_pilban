@@ -24,6 +24,7 @@ class CreateMasterDataWargasTable extends Migration
             ])->default('0');
             $table->string('alamat')->nullable();
             $table->string('kategori_warga')->nullable();
+            $table->string('penanggung_jawab')->nullable();
             $table->string('id_kabupaten');
             $table->string('id_kecamatan');
             $table->string('id_kelurahan')->nullable();

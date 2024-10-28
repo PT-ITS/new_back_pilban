@@ -398,7 +398,7 @@ class DataWargaController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Data warga berhasil dihapus'
+            'message' => $dataWarga
         ]);
     }
 }
