@@ -10,6 +10,7 @@ class MasterDataWarga extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'nik',
         'nama',
         'jenis_kelamin',
