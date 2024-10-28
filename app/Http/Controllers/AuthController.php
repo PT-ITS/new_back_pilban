@@ -42,6 +42,23 @@ class AuthController extends Controller
         }
     }
 
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()], 400);
+        }
+
+        $user = auth()->user();
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return response()->json(['message' => 'Password updated successfully']);
+    }
+
     /**
      * Get a JWT via given credentials.
      *
